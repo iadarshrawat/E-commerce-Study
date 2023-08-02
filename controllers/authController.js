@@ -6,7 +6,7 @@ import  jwt  from "jsonwebtoken"
 export const registerController = async (req, res)=>{
     try {
 
-        const {name, email, password, phone, address} = req.body
+        const {name, email, password, phone, address, role} = req.body
         // validations
         if(!name) {
             return res.send({error:"name is required"})
@@ -35,7 +35,7 @@ export const registerController = async (req, res)=>{
 
         // register user
         const hashedPassword = await hashPassword(password);
-        const user = new userModel({name, email, phone, address, password:hashedPassword}).save()
+        const user = new userModel({name, email, phone, address, password:hashedPassword, role}).save()
 
         res.status(201).send({
             success:true,
@@ -104,4 +104,10 @@ export const loginController = async (req, res) => {
             error
         })
     } 
+}
+
+
+// test controller
+export const testController = (req, res)=>{
+    res.send('test controller')
 }
