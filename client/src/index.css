@@ -3,3 +3,38 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+/* navbar css */
+.navbar {
+  font-size: 17px;
+  line-height: 28px;
+  text-transform: uppercase;
+  box-shadow: 0 8px 6px -6px gray;
+  border-bottom: 0.3px solid gray !important;
+}
+
+.nav-link {
+  font-weight: 300 !important;
+}
+
+.active {
+  border-bottom: 2px solid black;
+}
+
+
+.footer {
+  color: white;
+  padding: 25px;
+  background: black;
+}
+
+.footer a {
+  text-decoration: none;
+  color: white;
+  padding: 10px;
+}
+
+.footer a:hover {
+  color: aqua;
+  border-bottom: 2px solid white;
+}
