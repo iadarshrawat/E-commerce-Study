@@ -4,6 +4,7 @@ import morgan from 'morgan';
 import connectDB from './config/db.js';
 import authRoutes from './routes/authRoute.js'
 import bodyParser from 'body-parser';
+import cors from 'cors'
 
 // configure env
 dotenv.config(); // in our case it is in root so no need to give path otherwise give path inside brakets
@@ -16,6 +17,7 @@ const app  = express();
 
 
 // middelware
+app.use(cors())
 app.use(morgan('dev'))
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())

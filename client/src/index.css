@@ -34,7 +34,19 @@
   padding: 10px;
 }
 
+
+/* *****************************footer********************************** */
 .footer a:hover {
   color: aqua;
   border-bottom: 2px solid white;
+}
+
+
+/* ******************************register******************************** */
+.register {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 75vh;
+  flex-direction: column;
 }
