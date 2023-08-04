@@ -42,8 +42,19 @@ function Header() {
                 </>
               ) : (
                 <>
+
+                    <div className="dropdown show">
+                      <a className="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        {auth?.user?.name}
+                      </a>
+                      <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <NavLink to="/dashboard" className="dropdown-item"> Dashboard </NavLink>
+                        <NavLink to='/login' className="nav-link" onClick={handleLogout}>logout</NavLink>
+                      </div>
+                    </div>
+
                 <li className="nav-item">
-                <NavLink to='/login' className="nav-link" onClick={handleLogout}>logout</NavLink>
+                
               </li>
                 </>
               )
