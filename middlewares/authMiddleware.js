@@ -3,12 +3,14 @@ import userModel from "../models/userModel.js";
 
 // Protected Routes token base
 export const requireSignIn = async (req, res, next) => {
+    console.log('hello')
     try {
         const decode = jwt.verify(
             req.headers.authorization, process.env.JWT_SECRET
         )
         req.user = decode;
-        next();    
+        console.log(req.user)
+        next();     
     } catch (error) {
             console.log(error)
     }    
@@ -17,22 +19,18 @@ export const requireSignIn = async (req, res, next) => {
 // admin access
 export const isAdmin = async (req, res , next)=>{
     try {
-        const user = await userModel.findById(req.user._id)
-        console.log(user.role);
-        if(user.role !== 1) {
-            return res.status(404).send({
+            console.log(req.user._id)
+            const user = await userModel.findById(req.user._id);
+            if(user.role !== 1) {
+            return res.status(401).send({
                 success:false,
                 message: "unAuthorized Access",
-            })
+            });
         }
         else {
-            next();
+            next()
         }
     } catch (error) {
-        res.status(401).send({
-            success:false,
-            message:'error in admin middleware',
-        })
         console.log(error)
     }
 }
