@@ -72,7 +72,7 @@ function CreateCategory() {
         toast.success(`category is deleted`)
         getAllCAtegory();
       }
-      else{
+      else{ 
         toast.error(data.message)
       }
     } catch (error) {
