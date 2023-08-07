@@ -51,14 +51,13 @@ export const getProductController = async (req, res)=>{
         const products = await productModel.find({}).populate('category').select('-photo').limit(12).sort({createdAt:-1})
         res.status(200).send({
             countTotal: products.length,
-            
             success:true,
             message:"all Products",
             products
         })
     } catch (error) {
         console.log(error)
-        req.status(500).send({
+        res.status(500).send({
             success:false,
             message:'error in getting products',
             error:error.message,
