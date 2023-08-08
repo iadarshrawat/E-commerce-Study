@@ -1,6 +1,6 @@
 import express from "express"
 import { isAdmin, requireSignIn } from "../middlewares/authMiddleware.js";
-import { createProductController, deleteProductController, getProductController, getSingleProductController, productPhotoController, updateProductController } from "../controllers/productController.js";
+import { createProductController, deleteProductController, getProductController, getSingleProductController, productPhotoController, updateProductController, productFiltersController } from "../controllers/productController.js";
 import formidable from "express-formidable";
 
 const router = express.Router();
@@ -22,5 +22,8 @@ router.delete('/deleteProduct/:pid', requireSignIn, isAdmin, deleteProductContro
 
 // update product
 router.put('/updateProduct/:pid', requireSignIn, isAdmin, formidable(), updateProductController)
+
+// filter product
+router.post('/productFilter', productFiltersController);
 
 export default router;
