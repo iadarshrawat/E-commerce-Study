@@ -7,9 +7,12 @@ import Link from 'antd/es/typography/Link';
 import { Checkbox, Radio } from 'antd'
 import { Prices } from '../components/Prices';
 import { useNavigate } from 'react-router-dom';
+import CartPage from './CartPage';
+import { useCart } from '../context/cart';
 
 function HomePage() {
-  const navigate = useNavigate();
+  const navigate = useNavigate(); 
+  const [cart, setCart] = useCart();
   const [auth, setAuth] = useAuth();
   const [products, setProducts] = useState([])
   const [Categories, setCategories] = useState([])
@@ -116,7 +119,12 @@ function HomePage() {
                     <p className="card-text">{p.description.substring(0, 30)}...</p>
                     <p className="card-text">{p.price}</p>
                     <button className='btn btn-primary ms-1' onClick={()=>{navigate(`/product/${p.slug}`)}}>See details</button>
-                    <button className='btn btn-primary ms-1'>Add to Cart</button>
+                    <button className='btn btn-primary ms-1' onClick={ ()=>{
+                        setCart([...cart, p]); 
+                        localStorage.setItem('cart', JSON.stringify([...cart, p]))
+                        toast.success("added successfully")
+                      } 
+                    }>Add to Cart</button>
                   </div>
                 </div>
                 // </Link>   
