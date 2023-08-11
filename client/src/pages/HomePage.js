@@ -6,8 +6,10 @@ import toast from 'react-hot-toast';
 import Link from 'antd/es/typography/Link';
 import { Checkbox, Radio } from 'antd'
 import { Prices } from '../components/Prices';
+import { useNavigate } from 'react-router-dom';
 
 function HomePage() {
+  const navigate = useNavigate();
   const [auth, setAuth] = useAuth();
   const [products, setProducts] = useState([])
   const [Categories, setCategories] = useState([])
@@ -113,7 +115,7 @@ function HomePage() {
                     <h5 className="card-title">{p.name}</h5>
                     <p className="card-text">{p.description.substring(0, 30)}...</p>
                     <p className="card-text">{p.price}</p>
-                    <button className='btn btn-primary ms-1'>See details</button>
+                    <button className='btn btn-primary ms-1' onClick={()=>{navigate(`/product/${p.slug}`)}}>See details</button>
                     <button className='btn btn-primary ms-1'>Add to Cart</button>
                   </div>
                 </div>

@@ -121,7 +121,6 @@ export const deleteProductController = async (req, res) => {
     }
 }
 
-
 export const updateProductController = async (req, res) => {
     try {
         const { name, slug, description, price, category, quantity, shipping } = req.fields;
@@ -182,6 +181,30 @@ export const productFiltersController = async (req, res)=>{
         res.status(400).send({
             success:false,
             message:"error while filtering products",
+            error
+        })
+    }
+}
+
+
+// search product
+export const searchProductController = async (req, res)=>{
+    try {
+        console.log("connting search with backend0")
+        const {keyword} = req.params;
+        const result = await productModel.find({
+            $or:[
+                {name:{$regex: keyword, $options:"i"}},
+                {description:{$regex: keyword, $options:"i"}}
+            ]
+        }).select("-photo")
+        res.json(result)
+
+    } catch (error) {
+        console.log(error)
+        res.status(400).send({
+            success:false,
+            message:"error in search proudct API",
             error
         })
     }
