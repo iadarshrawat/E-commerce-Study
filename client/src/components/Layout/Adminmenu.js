@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom'
 
 function Adminmenu() {
     return (
-        <>
+        <> 
             <div className='text-center'>
 
                 <div class="list-group">
