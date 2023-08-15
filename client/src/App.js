@@ -23,6 +23,9 @@ import Search from './pages/Search';
 import ProductDetails from './pages/ProductDetails';
 import CartPage from './pages/CartPage';
 
+// style
+import "./style/Header.scss"
+
 function App() {
   return (
     <>

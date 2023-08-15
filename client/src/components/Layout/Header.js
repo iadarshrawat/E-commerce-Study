@@ -19,14 +19,14 @@ function Header() {
 
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <div className="container-fluid">
+      <nav className="navbar navbar-expand-lg">
+        <div className="container-fluid tackel">
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon" />
           </button>
           <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
-            <Link to='/' className="navbar-brand">Ecommerce APP</Link>
-            <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
+            <Link to='/' className="navbar-brand">Eco Mingle</Link>
+            <ul className="navbar-nav ms-auto mb-lg-0">
 
               <SearchInput/>
 
@@ -36,12 +36,16 @@ function Header() {
               <li className="nav-item">
                 <NavLink to='/category' className="nav-link">Category</NavLink>
               </li> 
+              <li className="nav-item">
+                <NavLink to='/cart' className="nav-link">Cart {cart?.length}</NavLink>
+              </li>
              {
               !auth.user ? (
                 <>
                  <li className="nav-item">
                 <NavLink to='/register' className="nav-link">Register</NavLink>
               </li>
+              
               <li className="nav-item">
                 <NavLink to='/login' className="nav-link">login</NavLink>
               </li>
@@ -65,9 +69,6 @@ function Header() {
                 </>
               )
              }
-              <li className="nav-item">
-                <NavLink to='/cart' className="nav-link">Cart {cart?.length}</NavLink>
-              </li>
             </ul>
           </div>
         </div>
