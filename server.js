@@ -8,12 +8,17 @@ import productRoutes from './routes/productRoutes.js'
 import bodyParser from 'body-parser';
 import cors from 'cors'
 import path from 'path'
+import  {fileURLToPath} from 'url'
 
 // configure env
 dotenv.config(); // in our case it is in root so no need to give path otherwise give path inside brakets
 
 // database config
 connectDB();
+
+// es module 5
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // rest object
 const app  = express();
