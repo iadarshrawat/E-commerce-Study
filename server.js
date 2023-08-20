@@ -20,6 +20,7 @@ connectDB();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+
 // rest object
 const app  = express();
 
@@ -46,7 +47,7 @@ app.use(express.static(path.join(__dirname, './client/build/')))
 // })
 
 app.use('*', function(req, res){
-    const index = path.join(__dirname, './client/build/index.html')
+    const index = "C:/Users/00ada/OneDrive/Desktop/MERN Project/ecommerce/client/build/index.html";
     res.sendFile(index);
 })
 
