@@ -7,6 +7,7 @@ import categoryRoutes from './routes/categoryRoutes.js'
 import productRoutes from './routes/productRoutes.js'
 import bodyParser from 'body-parser';
 import cors from 'cors'
+import path from 'path'
 
 // configure env
 dotenv.config(); // in our case it is in root so no need to give path otherwise give path inside brakets
@@ -28,12 +29,17 @@ app.use(bodyParser.json())
 app.use('/api/v1/auth', authRoutes);
 app.use('/api/v1/category', categoryRoutes);
 app.use('/api/v1/product', productRoutes);
+app.use(express.static(path.join(__dirname, './client/build')))
 
 // rest api
-app.get('/', (req, res)=>{
-    res.send({
-        message:'WelCome to my website'
-    })
+// app.get('/', (req, res)=>{
+//     res.send({
+//         message:'WelCome to my website'
+//     })
+// })
+
+app.use('*', function(req, res){
+    res.sendFile(path.join(__dirname, "./client/build/index.html"));
 })
 
 const PORT = process.env.PORT || 8080;

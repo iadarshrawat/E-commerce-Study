@@ -25,7 +25,6 @@ function SearchInput() {
                 <input className="form-control mr-sm-2" width="4" type="search" placeholder="Search" aria-label="Search" value={values.keyword} onChange={(e) => setValues({ ...values, keyword: e.target.value })} />
                 <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             </form>
-
         </div>
     )
 }
