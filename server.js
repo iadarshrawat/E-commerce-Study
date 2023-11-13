@@ -47,8 +47,7 @@ app.use(express.static(path.join(__dirname, './client/build/')))
 // })
 
 app.use('*', function(req, res){
-    const index = "C:/Users/00ada/OneDrive/Desktop/MERN Project/ecommerce/client/build/index.html";
-    res.sendFile(index);
+    res.sendFile(path.join(__dirname, './client/build/index.html'));
 })
 
 const PORT = process.env.PORT || 8080;
