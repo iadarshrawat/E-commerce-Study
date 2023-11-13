@@ -3,11 +3,13 @@
   "version": "1.0.0",
   "description": "ecommerce rest api",
   "main": "server.js",
+  "proxy": "http://localhost:5000",
   "type": "module",
   "scripts": {
     "start": "node server.js",
     "server": "nodemon server.js",
-    "client": "npm start --prefix ./client"
+    "client": "npm start --prefix ./client",
+    "dev": "concurrently \"npm run start\" \"npm run client\""
   },
   "keywords": [],
   "author": "adarsh",
