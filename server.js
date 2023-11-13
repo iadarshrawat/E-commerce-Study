@@ -26,7 +26,7 @@ const app  = express();
 
 
 // middelware
-app.use(cors())
+app.use(cors('http://localhost:3000/'))
 app.use(morgan('dev'))
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
