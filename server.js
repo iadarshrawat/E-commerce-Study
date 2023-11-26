@@ -33,12 +33,7 @@ app.use(function(req, res, next) {
 
 
 // middelware
-const corsOption = {
-    origin: ['*'],
-    credentials: true,
-    methods: ["GET", "POST", "PUT", "DELETE"],
-}
-app.use(cors(corsOption));
+app.use(cors());
 app.use(morgan('dev'))
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
