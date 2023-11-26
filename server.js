@@ -34,7 +34,7 @@ app.use(function(req, res, next) {
 
 // middelware
 const corsOption = {
-    origin: ['http://localhost:3000'],
+    origin: ['https://awful-foal-boot.cyclic.cloud/'],
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE"],
 }
