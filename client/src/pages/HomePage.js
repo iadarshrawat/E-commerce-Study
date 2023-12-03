@@ -4,11 +4,12 @@ import { useAuth } from '../context/auth'
 import axios from 'axios';
 import toast from 'react-hot-toast';
 import Link from 'antd/es/typography/Link';
-import { Checkbox, Radio } from 'antd'
+import { Carousel, Checkbox, Radio } from 'antd'
 import { Prices } from '../components/Prices';
 import { useNavigate } from 'react-router-dom';
 import CartPage from './CartPage';
 import { useCart } from '../context/cart';
+import Carousell from '../components/Layout/Carousel';
 
 function HomePage() {
   const navigate = useNavigate(); 
@@ -79,6 +80,9 @@ function HomePage() {
   return (
     <div>
       <Layout>
+        <div className='carausal'>
+          <Carousell/>
+        </div>
         <div className="row mt-4">
           <div className="col-md-2">
             <h3 className="text-center">Filter by Category</h3>

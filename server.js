@@ -24,14 +24,6 @@ const __dirname = path.dirname(__filename);
 // rest object
 const app  = express();
 
-// cors error removal for production
-app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-});
-
-
 // middelware
 app.use(cors());
 app.use(morgan('dev'))
@@ -39,13 +31,13 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
 // routes
+app.use(express.static(path.join(__dirname, './client/build/')))
 app.use('/api/v1/auth', authRoutes);
 app.use('/api/v1/category', categoryRoutes);
 app.use('/api/v1/product', productRoutes);
-app.use(express.static(path.join(__dirname, './client/build/')))
+
 
 // console.log(path.join(__dirname, ));
-
 // rest api
 // app.get('/', (req, res)=>{
 //     res.send({
