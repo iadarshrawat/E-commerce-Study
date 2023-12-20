@@ -2,6 +2,7 @@ import React from 'react'
 import { useSearch } from '../../context/search';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import '../../style/SearchInput.scss'
 
 function SearchInput() {
     const [values, setValues] = useSearch();
@@ -19,11 +20,11 @@ function SearchInput() {
         }
     }
     return (
-        <div>
+        <div className='searchInput'>
 
-            <form className="form-inline my-2 my-lg-0"  onSubmit={handleSubmit}>
-                <input className="form-control mr-sm-2" width="4" type="search" placeholder="Search" aria-label="Search" value={values.keyword} onChange={(e) => setValues({ ...values, keyword: e.target.value })} />
-                <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            <form onSubmit={handleSubmit} >
+                <input width="4" type="search"  placeholder="Search your favrouite item" aria-label="Search" value={values.keyword} onChange={(e) => setValues({ ...values, keyword: e.target.value })}/>
+                <button className="btn" type="submit">Search</button>
             </form>
         </div>
     )

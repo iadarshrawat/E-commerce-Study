@@ -19,13 +19,13 @@ function Header() {
 
   return (
     <>
-      <nav className="navbar navbar-expand-lg">
+      <nav className="navbar navbar-expand-lg" >
         <div className="container-fluid tackel">
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon" />
           </button>
           <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
-            <Link to='/' className="navbar-brand">Eco Mingle</Link>
+            <Link to='/' className="navbar-brand">GearGlide.com</Link>
             <ul className="navbar-nav ms-auto mb-lg-0">
 
               <SearchInput/>
@@ -54,9 +54,9 @@ function Header() {
                 <>
 
                     <div className="dropdown show">
-                      <a className="btn btn-secondary dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <Link className="btn btn-secondary dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         {auth?.user?.name}
-                      </a>
+                      </Link>
                       <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
                         <NavLink to={`/dashboard/${auth?.user?.role === 1 ? 'admin' : 'user'}`} className="dropdown-item"> Dashboard </NavLink>
                         <NavLink to='/login' className="nav-link" onClick={handleLogout}>logout</NavLink>

@@ -1,14 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital@1&family=Pacifico&display=swap');
 
 .navbar{
-    background: rgb(141, 147, 228);
+    background: #ffffff;
     height: 6rem;
     .tackel{
         margin: 5rem;
         .collapse{
             >.navbar-brand{
-                font-size: 2.5rem;
-               font-family: 'Pacifico', cursive;
+                font-size: 2rem;
+               font-family: 'Open Sans';
             }
             >ul{
                 *{
@@ -18,9 +18,6 @@
                 }
                 >.dropdown{
                     margin: 0.7rem;
-                }
-                SearchInput{
-                    background: red;
                 }
             }
         }

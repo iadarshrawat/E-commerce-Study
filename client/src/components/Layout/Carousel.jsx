@@ -1,5 +1,4 @@
 import carausel from './../../static/carausel.jpg'
-import carausel2 from './../../static/carausel2.jpg'
 
 
 function Carousell() {

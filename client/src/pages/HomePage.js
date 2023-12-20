@@ -115,8 +115,7 @@ function HomePage() {
             <h1 className="text-center">All Products</h1>
             <div className="d-flex flex-wrap">
               {products?.map(p => (
-                // <Link key={p._id} to={`/dashboard/admin/product/${p.slug}`} className='text-black'>
-                <div className="card m-2" style={{ width: '18rem' }}>
+                <div className="card m-2" style={{ width: '20rem' }}>
                   <img className="card-img-top" src={`http://localhost:8080/api/v1/product/productPhoto/${p._id}`} alt={p.name} />
                   <div className="card-body">
                     <h5 className="card-title">{p.name}</h5>
@@ -131,7 +130,6 @@ function HomePage() {
                     }>Add to Cart</button>
                   </div>
                 </div>
-                // </Link>   
               ))}
             </div>
           </div>
